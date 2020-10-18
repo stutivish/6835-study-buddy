@@ -1,6 +1,6 @@
 # studybuddy
 MIT 6.835 Final Project\
-Jessica Quaye & Stuti Vishwabhan
+**Contributors: **Jessica Quaye & Stuti Vishwabhan
 
 ## Introduction
 There are two main types of files running the web app in our system: *.html* files and *.js* files. 
