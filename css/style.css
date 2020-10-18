@@ -1,0 +1,221 @@
+
+/** Overall page style**/
+body{
+	background-color: #e9d2c7;
+	font-family: Raleway;
+	font-size: 20px;
+	color:#0b3159;
+}
+
+h1{
+	text-align: center;
+	font-size: 50px; 
+	color: #fff;
+	top: 5px;
+	font-weight: bold;
+}
+
+#heading{
+	text-align: center;
+	font-size: 30px; 
+	top: 5px;
+	text-decoration: underline;
+}
+
+#speech {
+	color: #d17698;
+	font-size: 20px;
+	text-align: center;
+}
+
+#study-plus-logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#blue-text{
+	color : #0b3159;
+}
+
+
+/*Logo tags*/
+#study-tag{
+	color: #ac3b61;
+}
+
+
+/*Teaching Pages*/
+#heart {
+	position: absolute;
+	bottom: 0;
+	right: 0; 
+	width:20%;
+	padding: 0px;
+	text-align: right; 
+	color: white;
+	font-size: 40px;
+	text-decoration: none; 
+}
+
+#heart-content{
+	text-align: justify;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 50px;
+}
+
+#lungs {
+	position: absolute;
+	bottom: 0;
+	left: 0; 
+	width:15%;
+	padding: 0px;
+	text-align: left;
+	color: white;
+	font-size: 40px; 
+	text-decoration: none; 
+}
+
+#content{
+	text-align: justify;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#canvas{
+	text-align: center;
+}
+
+#material-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+
+/* Lung Diagram Test Elements*/
+#trachea-div{
+	position: absolute;
+	top: 50px;
+	left: 640px;
+	color: black;
+	font-size: 40px;
+}
+
+#bronchus-div{
+	position: absolute;
+	top: 150px;
+	left: 500px;
+	color: black;
+	font-size: 40px;
+}
+
+#left-lung-div{
+	position: absolute;
+	top: 200px;
+	left: 720px;
+	color: black;
+	font-size: 40px;
+}
+
+#right-lung-div{
+	position: absolute;
+	top: 200px;
+	left: 400px;
+	color: black;
+	font-size: 40px;
+}
+
+#lung-plus-text{
+	position: relative;
+}
+
+#wrong-tag{
+	color: red;
+	font-size: 20px;
+	left: 460px;
+	position: absolute;
+}
+
+.ol{
+	display: flex;
+}
+
+/*Table of contents */
+#lung-container{
+ 	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#heart-container{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*End of table of contents*/
+
+
+#swiping-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#other-gesture-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#table-no-row {
+	border: 1px solid black;
+}
+
+/*Navigation bar at the bottom*/
+.navbar {
+  overflow: hidden;
+  background-color: #0b3159;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color:white;
+  float:center;
+}
+
+mark {
+	background-color: yellow; 
+}
+
+td {
+	border: 1px solid black; 
+	padding-left: 10px; 
+	padding-bottom: 4px;
+	text-align: left;
+	width:240;
+}
+
+th {
+	font-size: 20px; 
+	border: 1px solid black; 
+	padding-left: 10px; 
+	padding-bottom: 4px;
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+
+#footnote{
+	color:yellow; 
+	float:left; 
+	padding-top: 15px;
+}
+

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>STUDY BUDDY</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="css/style.css"></script>
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+		<script src="lib/leap.min.js"></script>
+		<script src="lib/leap-plugins.min.js"></script>
+		<script src="lib/jquery.min.js"></script>
+		
+		<script src="lib/underscore.min.js"></script> 
+		<script src="lib/backbone.min.js"></script>
+		<script src="lib/famous.min.js"></script>
+		
+
+		<script src="integrated/config.js"></script>
+		<script src="integrated/setup.js"></script>
+		<script src="integrated/models.js"></script>
+		<script src="integrated/helpers.js"></script>
+	</head>
+
+	<body>
+		<a id="lungs" href="lungs.html"></a>
+		<a id="home" href="home.html"></a>
+		<a id="help-speech" href="help-speech.html"></a>
+  		<a id="help-gesture" href="help-gesture.html"></a>
+		<a id="test" href="testing/lungDiagramTest.html"></a>
+		<a id="test-table-of-contents" href="testing/test-t-of-contents.html"></a>
+		<a id="calibrate-intro" href="calibrating/calibrate-intro.html"></a>
+		<a id="close" href="last-page.html"></a>
+
+		<div id="study-plus-logo">
+			<img src="img/logo.png" width=100; height=100;>
+			<div id="study-tag" style="font-size:60px; text-align: center; padding-top: 20px; ">Study Buddy</div>
+		</div>
+
+		<div id="speech">
+			Speech DEBUG: ready
+		</div>	
+
+		<div id="heading"> THE HEART </div>
+
+
+		<div id="material-container">
+
+			<canvas id="canvas" width="600" height="400">
+			  A 3D-model of the heart. 
+			</canvas>
+
+			<div id="heart-content" style="font-size: 20px;">
+				<p>
+					<ul><b><u>Human Heart</u></b> - an organ the size of a fist with 4 chambers that pumps blood throughout the body via the circulatory system</ul>
+
+					<ul><b><u>Circulatory System</u></b> - supplies oxygen and nutrients to tissues and removes carbon dioxide and other wastes</ul>
+
+					<ul><b><u>Right Atrium</u></b> - the upper right chamber of the heart that receives blood from the veins through the Vena Cava. This blood contains little oxygen and is carbon dioxide-rich</ul>
+
+					<ul><b><u>Right Ventricle</u></b> - the lower right chamber of the heart that receives blood from the right atrium and pumps it to the lungs</ul>
+
+				 </p>
+			</div>	
+
+		</div>
+
+		<div id="footnote" style="color:#960019; font-size: 30px;">Say "Lungs" to go back. Say "Test" to begin testing.</div>
+
+		<div class="navbar">
+	      &nbsp;&nbsp;&nbsp;
+	      &nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+	      &nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+	      &nbsp;&nbsp;&nbsp;&nbsp;Calibrate&nbsp;&nbsp;&nbsp;&nbsp; |
+	      &nbsp;&nbsp;&nbsp;&nbsp;Learn&nbsp;&nbsp;&nbsp;&nbsp; |
+	      &nbsp;&nbsp;&nbsp;&nbsp;Lungs&nbsp;&nbsp;&nbsp;&nbsp; |<mark>&nbsp;
+	      &nbsp;&nbsp;&nbsp;&nbsp;Heart&nbsp;&nbsp;&nbsp;&nbsp; </mark>|
+	      &nbsp;&nbsp;&nbsp;&nbsp;Test&nbsp;&nbsp;&nbsp;&nbsp; |
+	      &nbsp;&nbsp;&nbsp;&nbsp;Label&nbsp;&nbsp;&nbsp;&nbsp; |
+          &nbsp;&nbsp;&nbsp;&nbsp;Fill in the Blank&nbsp;&nbsp;&nbsp;&nbsp; |
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
+        </div>
+
+
+		<script src="three-js/build/three.js"></script>
+
+		<script src="three-js/examples/js/libs/inflate.min.js"></script>
+		<script src="three-js/examples/js/loaders/GLTFLoader.js"></script>
+
+		<script src="three-js/examples/js/controls/OrbitControls.js"></script>
+
+		<script src="three-js/examples/js/WebGL.js"></script>
+
+		<script>
+
+			if ( WEBGL.isWebGLAvailable() === false ) {
+
+				document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+
+			}
+
+			var container, stats, controls;
+			var camera, scene, renderer;
+			var mixer;
+			var clock = new THREE.Clock();
+
+			init();
+			animate();
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera(75, 2, 5, 10000);
+				camera.position.set( 50, -150, -80 );
+
+				controls = new THREE.OrbitControls( camera );
+				controls.target.set( 50, 45, 0 );
+				controls.update();
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xa0a0a0 );
+
+				var light = new THREE.AmbientLight( {color: 0x404040, intensity: 80} ); // soft white light
+				scene.add( light );
+
+				var loader = new THREE.GLTFLoader().setPath( 'models/Heart/' );
+				loader.load( 'scene.gltf', function ( gltf ) {
+
+					const model = gltf.scene;
+					scene.add(model);
+					mixer = new THREE.AnimationMixer(model);
+					gltf.animations.forEach((clip) => {
+					    mixer.clipAction(clip).play();
+					});
+
+					scene.add( gltf.scene );
+
+				} );
+
+				renderer = new THREE.WebGLRenderer({antialias: true , canvas: document.getElementById("canvas")});
+				renderer.gammaOutput = true;
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+
+			function resizeCanvasToDisplaySize() {
+			  const canvas = renderer.domElement;
+			  // look up the size the canvas is being displayed
+			  const width = canvas.clientWidth;
+			  const height = canvas.clientHeight;
+
+			  // adjust displayBuffer size to match
+			  if (canvas.width !== width || canvas.height !== height) {
+			    // you must pass false here or three.js sadly fights the browser
+			    renderer.setSize(width, height, false);
+			    camera.aspect = width / height;
+			    camera.updateProjectionMatrix();
+			  }
+			}
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				var delta = clock.getDelta();
+
+				resizeCanvasToDisplaySize();
+				if ( mixer ) mixer.update( delta );
+				renderer.render( scene, camera );
+
+			}
+
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+
+				var delta = clock.getDelta();
+
+				if ( mixer ) mixer.update( delta );
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+		<script src="integrated/heart.js"></script>
+		<script src="integrated/setupSpeech.js"></script>
+	</body>
+</html>

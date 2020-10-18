@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>STUDY BUDDY QUIZ</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="../css/style.css"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <script src="../lib/leap.min.js"></script>
+    <script src="../lib/leap-plugins.min.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    
+    <script src="../lib/underscore.min.js"></script> 
+    <script src="../lib/backbone.min.js"></script>
+    <script src="../lib/famous.min.js"></script>
+    
+
+    <script src="../integrated/config.js"></script>
+    <script src="../integrated/setup.js"></script> 
+    <script src="../integrated/models.js"></script>
+	</head>
+
+	<body>
+    <div id="study-plus-logo">
+      <img src="../img/logo.png" width=100; height=100;>
+      <div id="study-tag" style="font-size:60px; text-align: center; padding-top: 20px; ">Study Buddy</div>
+    </div>
+
+    <div id="speech">
+      PLEASE SPEAK. I AM LISTENING.
+    </div>  
+    <br><br>
+
+
+  <div id="fill-instruction" style="font-size:30px; float:left;">
+    Point to answer blank. Point to a question and say "I don't know" if you need a hint. 
+  </div>
+  <br><br><br>
+
+  <div id="question1" style="height: 20px">
+      <div style="float:left;  padding-top: 20px;"> 1. Humans breathe in </div> 
+      <div id="q1-resp1" style="float: left; padding-left: 20px; padding-right: 20px; padding-top: 20px;">
+        <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+      </div>  
+      <div style="float:left;padding-top: 20px"> and breathe out </div> 
+      <div id="q1-resp2" style="float: left; padding-left: 20px; padding-right: 20px;  padding-top: 20px">
+        <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+      </div>  
+      <div style="float:left;  padding-top: 20px"> . </div>
+  </div>
+  <br><br>
+
+  <div id="question2" style="height: 20px">
+      <div style="float:left;"> 2. The long tube that connects the mouth to the lungs is known as </div> 
+      <div id="q2-resp1" style="float: left; padding-left: 20px; padding-right: 20px;">
+        <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+      </div>  
+      <div style="float:left"> .</div> 
+  <br><br><br>
+
+
+  <div class="navbar">
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+      &nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+      &nbsp;&nbsp;&nbsp;&nbsp;Calibrate&nbsp;&nbsp;&nbsp;&nbsp; |
+      &nbsp;&nbsp;&nbsp;&nbsp;Learn&nbsp;&nbsp;&nbsp;&nbsp; |
+      &nbsp;&nbsp;&nbsp;&nbsp;Lungs&nbsp;&nbsp;&nbsp;&nbsp; |
+      &nbsp;&nbsp;&nbsp;&nbsp;Heart&nbsp;&nbsp;&nbsp;&nbsp; |
+      &nbsp;&nbsp;&nbsp;&nbsp;Test&nbsp;&nbsp;&nbsp;&nbsp; |
+      &nbsp;&nbsp;&nbsp;&nbsp;Label&nbsp;&nbsp;&nbsp;&nbsp; |<mark>&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;Fill in the Blank&nbsp;&nbsp;&nbsp;&nbsp; </mark>|
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Success&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+     </div>
+      </div>
+
+  <img id="q1-clue" src="../test_images/respiration.gif" style="display: block; margin-left: auto;
+  margin-right: auto; width: 50%;">
+
+  <img id="q2-clue" src="../test_images/test-trachea2.jpg" style="display: block; margin-left: auto;
+  margin-right: auto; width: 280; height: 295;">
+
+  <div id="warning-message" style="text-align: center; padding-top: 100px"> Please point to a particular response region that you are confused about.</div>
+
+
+  <script>  
+    document.getElementById("warning-message").style.display = "none"; 
+    document.getElementById("q1-clue").style.display = "none"; 
+    document.getElementById("q2-clue").style.display = "none"; 
+  </script>
+
+    
+    <script src="../integrated/helpers.js"></script>
+    <script src="../integrated/fill-in-blank.js"></script>
+    <script src="../integrated/setupSpeech.js"></script>
+
+    <a id="close" href="../last-page.html"></a>
+
+
+	</body>
+
+
+</html>
