@@ -1,5 +1,5 @@
 # studybuddy
-MIT 6.835 Final Project
+MIT 6.835 Final Project\
 Jessica Quaye & Stuti Vishwabhan
 
 ## Introduction
